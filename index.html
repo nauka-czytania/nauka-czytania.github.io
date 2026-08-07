@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nauka czytania po polsku – litery, sylaby i zdania</title>
+  <meta name="description" content="Darmowe narzędzie dla dzieci do nauki czytania po polsku. Wklej tekst, podziel go na zdania, wyrazy, sylaby i litery oraz odsłuchuj wybrane elementy.">
+  <meta name="google-adsense-account" content="ca-pub-2654167674032555">
+  <link rel="stylesheet" href="styles.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2654167674032555" crossorigin="anonymous"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">Nauka czytania</a>
+      <nav class="site-nav" aria-label="Główna nawigacja">
+        <a href="index.html" aria-current="page">Narzędzie</a>
+        <a href="poradnik.html">Poradnik</a>
+        <a href="o-projekcie.html">O projekcie</a>
+        <a href="prywatnosc.html">Prywatność</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <span class="badge">Darmowe narzędzie edukacyjne dla dzieci</span>
+        <h1 id="hero-title">Czytanie krok po kroku: od litery do całego zdania</h1>
+        <p>Wklej dowolny polski tekst albo otwórz plik tekstowy. Aplikacja podzieli materiał na zdania, wyrazy, sylaby i mniejsze jednostki, a wybrane elementy możesz odczytać głosem syntezatora mowy.</p>
+        <div class="button-row">
+          <a class="button button-primary" href="#czytnik">Otwórz czytnik</a>
+          <a class="button button-secondary" href="poradnik.html">Jak z niego korzystać?</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Najważniejsze informacje">
+        <h2>Co potrafi aplikacja?</h2>
+        <ul>
+          <li>dzieli dłuższy tekst na pojedyncze zdania,</li>
+          <li>pokazuje litery i sylaby w czytelnej formie,</li>
+          <li>pozwala odsłuchać literę, sylabę, wyraz lub całe zdanie,</li>
+          <li>działa w przeglądarce bez wysyłania wpisanego tekstu do serwera aplikacji.</li>
+        </ul>
+        <p class="hint">Brzmienie głosu zależy od syntezatora dostępnego w systemie lub przeglądarce.</p>
+      </aside>
+    </section>
+
+    <section id="czytnik" class="tool-shell" aria-labelledby="tool-title">
+      <div class="tool-header">
+        <h2 id="tool-title">Czytnik do ćwiczeń</h2>
+        <p>Wprowadź materiał, z którym chcesz pracować. Najlepiej zaczynać od krótkich zdań.</p>
+      </div>
+
+      <div class="tool-body">
+        <div class="form-grid">
+          <div class="field">
+            <label for="textInput">Tekst do ćwiczeń</label>
+            <textarea id="textInput" rows="6" placeholder="Np. Ola ma psa. Pies lubi biegać po parku."></textarea>
+            <p class="hint">Tekst jest analizowany lokalnie w Twojej przeglądarce.</p>
+          </div>
+
+          <div class="field">
+            <label for="fileInput">Albo wybierz plik tekstowy</label>
+            <input type="file" id="fileInput" accept=".txt,text/plain">
+            <p class="hint">Obsługiwane są zwykłe pliki TXT kodowane w UTF-8.</p>
+
+            <div class="tool-options">
+              <div class="field">
+                <label for="phoneticMode">Czytanie liter</label>
+                <select id="phoneticMode">
+                  <option value="standard">Standardowe</option>
+                  <option value="phonetic">Fonetyczne</option>
+                </select>
+              </div>
+              <div>
+                <strong>Synteza mowy</strong>
+                <p class="hint">Aplikacja wybiera dostępny polski głos. Na różnych urządzeniach wymowa może się różnić.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="button-row tool-actions">
+          <button id="loadTextButton" type="button">Podziel tekst</button>
+          <button id="loadExampleButton" type="button">Wczytaj przykład</button>
+          <button id="clearTextButton" type="button">Wyczyść</button>
+        </div>
+        <p id="liveStatus" class="sr-only" aria-live="polite"></p>
+
+        <div class="reader-area">
+          <div class="reader-toolbar">
+            <p><strong>Jak czytać oznaczenia:</strong> kliknij literę, pasek sylaby albo górny pasek wyrazu, aby go odsłuchać.</p>
+            <button id="speakSentenceButton" type="button">Odczytaj całe zdanie</button>
+          </div>
+
+          <div id="wordsContainer" aria-label="Podzielone zdanie"></div>
+
+          <div class="reader-nav">
+            <button id="prevButton" type="button">← Poprzednie zdanie</button>
+            <span id="sentenceCounter" aria-live="polite">Brak wczytanego tekstu</span>
+            <button id="nextButton" type="button">Następne zdanie →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="how-title">
+      <h2 id="how-title">Jak wykorzystać narzędzie podczas nauki?</h2>
+      <p class="section-intro">Najlepszy efekt daje krótka, spokojna praca na materiale dopasowanym do umiejętności dziecka. Narzędzie może ułatwić powtarzanie i samodzielne ćwiczenia, a w razie potrzeby może być używane razem z rodzicem lub nauczycielem.</p>
+      <div class="cards-3">
+        <article class="content-card">
+          <h3>1. Zacznij od krótkiego tekstu</h3>
+          <p>Jedno lub dwa zdania pozwalają skupić uwagę na aktualnym zadaniu. Gdy czytanie staje się pewniejsze, można stopniowo zwiększać długość materiału.</p>
+        </article>
+        <article class="content-card">
+          <h3>2. Przechodź od części do całości</h3>
+          <p>Najpierw można odsłuchać pojedyncze znaki i sylaby, później cały wyraz, a na końcu zdanie. Dzięki temu ten sam materiał można ćwiczyć na kilku poziomach.</p>
+        </article>
+        <article class="content-card">
+          <h3>3. Porównuj z naturalną wymową</h3>
+          <p>Syntezator mowy jest pomocą techniczną i nie zawsze akcentuje tekst tak jak człowiek. Warto porównywać odsłuch z wymową rodzica, nauczyciela lub lektora.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="privacy-short-title">
+      <div class="notice">
+        <strong id="privacy-short-title">Prywatność wpisanego tekstu</strong>
+        Tekst wpisany w czytniku i zawartość wybranego pliku są przetwarzane przez skrypt działający w przeglądarce. Aplikacja nie ma własnego serwera, na który wysyłałaby ten materiał. Serwis może jednak korzystać z zewnętrznych usług potrzebnych do hostingu i reklam; szczegóły opisuje <a href="prywatnosc.html">Polityka prywatności</a>.
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="faq-title">
+      <h2 id="faq-title">Najczęstsze pytania</h2>
+      <div class="faq-list">
+        <article class="faq-item">
+          <h3>Czy podział na sylaby zawsze będzie idealny?</h3>
+          <p>Nie. Aplikacja korzysta z reguł zapisanych w kodzie i może pomylić się przy wyjątkach językowych, nazwach własnych lub nietypowych wyrazach. Traktuj wynik jako pomoc do ćwiczeń, nie jako słownik normatywny.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Dlaczego ten sam tekst brzmi inaczej na telefonie i komputerze?</h3>
+          <p>Za głos odpowiada mechanizm syntezy mowy dostępny w danym systemie i przeglądarce. Aplikacja wskazuje język polski, ale nie dostarcza własnego nagranego głosu.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Czy mogę używać własnych tekstów?</h3>
+          <p>Tak. Możesz wkleić tekst lub wczytać plik TXT. Pamiętaj, aby używać materiałów, do których masz prawo, zwłaszcza jeżeli zamierzasz je później publicznie udostępniać.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2026 Nauka czytania. Narzędzie edukacyjne do ćwiczeń języka polskiego.</p>
+      <div class="footer-links">
+        <a href="poradnik.html">Poradnik</a>
+        <a href="o-projekcie.html">O projekcie</a>
+        <a href="prywatnosc.html">Polityka prywatności</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

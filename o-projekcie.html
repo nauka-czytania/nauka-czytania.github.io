@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>O projekcie – Nauka czytania</title>
+  <meta name="description" content="Informacje o projekcie Nauka czytania dla dzieci: cel aplikacji, sposób działania, prywatność wprowadzanego tekstu i ograniczenia syntezy mowy.">
+  <meta name="google-adsense-account" content="ca-pub-2654167674032555">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">Nauka czytania</a>
+      <nav class="site-nav" aria-label="Główna nawigacja">
+        <a href="index.html">Narzędzie</a>
+        <a href="poradnik.html">Poradnik</a>
+        <a href="o-projekcie.html" aria-current="page">O projekcie</a>
+        <a href="prywatnosc.html">Prywatność</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="article">
+      <span class="badge">O projekcie</span>
+      <h1>Proste narzędzie do pracy z własnym tekstem</h1>
+      <p class="lead">„Nauka czytania” powstała jako przeglądarkowa pomoc dla dzieci uczących się czytać po polsku. Jej główna idea jest prosta: użytkownik sam wybiera tekst, a aplikacja pokazuje go w formie wygodnej do pracy krok po kroku.</p>
+
+      <h2>Dla kogo jest aplikacja?</h2>
+      <p>Serwis jest skierowany do dzieci uczących się czytania. Interfejs ma umożliwiać dziecku pracę z krótkim tekstem krok po kroku, samodzielnie lub z pomocą rodzica, opiekuna albo nauczyciela.</p>
+
+      <h2>Cel aplikacji</h2>
+      <p>Gotowe ćwiczenia do nauki czytania często mają zamknięty zestaw zdań. Tutaj materiał można dopasować do aktualnych potrzeb: wkleić zdanie z lekcji, napisać własną historyjkę albo przygotować kilka słów zawierających konkretną trudność. Dzięki temu ta sama aplikacja może służyć do krótkich powtórek i do pracy z dłuższym fragmentem tekstu.</p>
+
+      <h2>Jak działa od strony technicznej?</h2>
+      <p>Serwis jest aplikacją statyczną działającą w przeglądarce. JavaScript pobiera tekst z pola formularza lub lokalnego pliku TXT, dzieli go na zdania i analizuje wyrazy. Algorytm rozpoznaje m.in. polskie samogłoski, wybrane dwuznaki oraz typowe układy spółgłosek używane podczas podziału na sylaby.</p>
+      <p>Do odsłuchu wykorzystywany jest interfejs Web Speech API dostępny w przeglądarce. Aplikacja ustawia język polski i, jeśli to możliwe, wybiera polski głos. Sam głos nie jest częścią projektu, dlatego jego brzmienie i dostępność zależą od urządzenia.</p>
+
+      <h2>Co dzieje się z wpisanym tekstem?</h2>
+      <p>Analiza tekstu odbywa się po stronie przeglądarki. Projekt nie ma bazy danych ani własnego mechanizmu przesyłania wpisanych zdań na serwer. Wybrany plik jest odczytywany lokalnie przy użyciu mechanizmu FileReader. Nie oznacza to jednak, że strona nie komunikuje się z żadnymi usługami zewnętrznymi: hosting, reklamy lub inne zasoby sieciowe mogą generować standardowe żądania internetowe. Szczegóły znajdują się w Polityce prywatności.</p>
+
+      <h2>Dlaczego podział może czasem się pomylić?</h2>
+      <p>Algorytm nie jest pełnym analizatorem języka polskiego i nie korzysta z rozbudowanego słownika. Działa na zestawie reguł przygotowanych do typowych ćwiczeń. Niektóre słowa, zapożyczenia, skróty, nazwy własne czy nietypowe połączenia liter mogą zostać rozłożone inaczej, niż zrobiłby to nauczyciel lub słownik.</p>
+      <p>Jeśli zauważysz taki przypadek, warto potraktować go jako sygnał do ręcznego sprawdzenia. Celem projektu jest ułatwienie ćwiczeń, a nie zastąpienie profesjonalnych opracowań językowych.</p>
+
+      <h2>Rozwój projektu</h2>
+      <p>Najważniejsze kierunki rozwoju to poprawianie jakości podziału polskich wyrazów, lepsza dostępność na telefonach i komputerach, czytelniejsze sterowanie oraz dalsze ograniczanie zbędnego przetwarzania danych. Projekt ma pozostać lekki i możliwy do uruchomienia bez konta użytkownika.</p>
+
+      <p><a class="button button-primary" href="index.html#czytnik">Wypróbuj aplikację</a></p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2026 Nauka czytania.</p>
+      <div class="footer-links">
+        <a href="index.html">Narzędzie</a>
+        <a href="poradnik.html">Poradnik</a>
+        <a href="prywatnosc.html">Polityka prywatności</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
