@@ -367,10 +367,68 @@ function prevSentence() {
 
 showSentence();
 
-const importedText = sessionStorage.getItem("naukaCzytaniaText");
-if (importedText) {
-  sessionStorage.removeItem("naukaCzytaniaText");
-  textInput.value = importedText;
-  processText(importedText);
-  setTimeout(() => document.getElementById("czytnik")?.scrollIntoView({ behavior: "smooth", block: "start" }), 80);
+function readTransferredText() {
+  let importedText = "";
+
+  try {
+    importedText = sessionStorage.getItem("naukaCzytaniaText") || "";
+    if (importedText) sessionStorage.removeItem("naukaCzytaniaText");
+  } catch (_) {}
+
+  if (!importedText) {
+    try {
+      importedText = localStorage.getItem("naukaCzytaniaText") || "";
+    } catch (_) {}
+  }
+
+  // localStorage is only a one-shot fallback, so remove it after the read.
+  try {
+    localStorage.removeItem("naukaCzytaniaText");
+  } catch (_) {}
+
+  return importedText.trim();
+}
+
+function loadImportedText(text) {
+  const cleanText = String(text || "").trim().replace(/\s+/g, " ");
+  if (!cleanText) return false;
+
+  textInput.value = cleanText;
+  processText(cleanText);
+  liveStatus.textContent = `Czytanka została wczytana. ${liveStatus.textContent}`;
+
+  setTimeout(() => {
+    document.getElementById("czytnik")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, 80);
+  return true;
+}
+
+async function recoverStoryFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const storyFile = params.get("czytanka") || "";
+
+  // Only local reading pages are accepted as a source.
+  if (!/^czytanka-[a-z0-9-]+\.html$/i.test(storyFile)) return false;
+
+  try {
+    const response = await fetch(storyFile, { cache: "no-store" });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    const html = await response.text();
+    const parsed = new DOMParser().parseFromString(html, "text/html");
+    const source = parsed.getElementById("readerText");
+    const text = source ? source.textContent.trim().replace(/\s+/g, " ") : "";
+
+    if (!text) throw new Error("Brak tekstu czytanki");
+    return loadImportedText(text);
+  } catch (error) {
+    console.error("Nie udało się wczytać czytanki:", error);
+    liveStatus.textContent = "Nie udało się automatycznie przenieść czytanki. Wróć do czytanki i spróbuj ponownie.";
+    return false;
+  }
+}
+
+const importedText = readTransferredText();
+if (!loadImportedText(importedText)) {
+  recoverStoryFromUrl();
 }
