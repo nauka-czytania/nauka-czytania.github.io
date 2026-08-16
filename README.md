@@ -1,9 +1,14 @@
-# NaukaCzytania 2.0
+# Nauka Czytania 2.1
 
-Statyczny serwis edukacyjny dla dzieci: czytnik własnego tekstu, lekcje liter/sylab/wyrazów/zdań, ćwiczenia i 12 autorskich czytanek.
+Wersja rozbudowana po audycie treści.
 
-Publikacja: wrzuć wszystkie pliki do katalogu głównego repozytorium GitHub Pages.
+## Najważniejsze zmiany
+- 24 autorskie czytanki: po 8 na każdym z 3 poziomów.
+- Każda czytanka: cel ćwiczenia, pytania, słowniczek, unikalne zadanie oraz linki do dalszej nauki.
+- Rozbudowana strona `nauka.html`.
+- Uzupełnione `o-projekcie.html`, `prywatnosc.html` i `kontakt.html`.
+- `sitemap.xml`, zaktualizowany `robots.txt` i canonicale.
+- Własna strona `404.html`.
+- Zachowany fix przenoszenia czytanki do czytnika z wersji 2.0.1.
 
-
-## 2.0.1
-Poprawiono przekazywanie wybranej czytanki do czytnika: sessionStorage + awaryjny localStorage + odtworzenie tekstu z adresu strony czytanki.
+Docelowy adres: https://nauka-czytania.github.io/

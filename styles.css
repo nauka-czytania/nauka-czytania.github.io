@@ -518,3 +518,37 @@ textarea {
   .site-nav a { white-space:nowrap; }
   .story-card p { min-height:0; }
 }
+
+
+/* NaukaCzytania 2.1 – richer learning content */
+.breadcrumbs { display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin:0 0 20px; font-size:.9rem; color:var(--muted); }
+.breadcrumbs a { text-decoration:none; font-weight:700; }
+.story-focus { margin:22px 0; padding:18px 20px; border-left:4px solid var(--primary); background:#eef4ff; border-radius:0 14px 14px 0; }
+.story-focus h2 { margin:0 0 6px; font-size:1.12rem; }
+.story-focus p { margin:0; }
+.vocab-section, .unique-exercise, .story-next { margin-top:34px; }
+.vocab-list { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:18px 0 0; }
+.vocab-item { padding:15px; border:1px solid var(--border); border-radius:13px; background:#fff; }
+.vocab-item dt { font-weight:900; color:var(--primary-dark); margin-bottom:5px; }
+.vocab-item dd { margin:0; color:var(--muted); }
+.unique-exercise { padding:20px 22px; border-radius:16px; border:1px solid #d9e7d8; background:#f2faf1; }
+.unique-exercise h2 { margin-top:0; }
+.cards-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+.compact-card { padding:18px; }
+.compact-card h3 { margin-top:0; }
+.story-level-section { margin:54px 0; scroll-margin-top:90px; }
+.story-level-section .section-heading h2 { margin-top:.45rem; }
+.story-card-focus { font-size:.9rem; min-height:0 !important; }
+.library-intro { margin-bottom:34px; }
+.center-row { justify-content:center; }
+.learning-detail-grid .content-card { min-height:100%; }
+.timeline-list { counter-reset:step; list-style:none; padding:0; display:grid; gap:12px; margin:20px 0 34px; }
+.timeline-list li { position:relative; padding:18px 20px 18px 58px; border:1px solid var(--border); background:#fff; border-radius:14px; }
+.timeline-list li::before { counter-increment:step; content:counter(step); position:absolute; left:16px; top:16px; width:30px; height:30px; display:grid; place-items:center; border-radius:50%; background:var(--primary); color:#fff; font-weight:900; }
+.difficulty-signals { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:20px 0 34px; }
+.difficulty-signals>div { padding:18px; border-radius:14px; border:1px solid var(--border); background:#fff; }
+.difficulty-signals h3 { margin-top:0; }
+.library-callout { border-top:1px solid var(--border); }
+@media (max-width: 760px) {
+  .vocab-list, .cards-2, .difficulty-signals { grid-template-columns:1fr; }
+}
