@@ -2,34 +2,20 @@
 
 Cały serwis „Nauka czytania” jest skierowany do dzieci.
 
-## Ustawienia obowiązkowe
+## Traktowanie wiekowe
 
-- Oznacz całą witrynę jako skierowaną do dzieci w narzędziach Google/Search Console.
-- Nie korzystaj z reklam personalizowanych ani remarketingu.
-- Google w 2026 używa TFAT (Tag for Age Treatment). Wartość CHILD to `1`.
-- Przy ręcznych jednostkach asynchronicznego AdSense dodaj do elementu `<ins class="adsbygoogle">`:
+Google w aktualnej dokumentacji używa TFAT (Tag for age treatment). Dla żądania przeznaczonego do traktowania CHILD wartość wynosi `1`.
+
+Przy ręcznej asynchronicznej jednostce reklamowej dodaj do elementu `ins.adsbygoogle`:
 
 ```html
 data-tag-for-age-treatment="1"
 ```
 
-Przykład (wstaw własny `data-ad-slot` z panelu AdSense):
+Nie wpisuj wymyślonego `data-ad-slot`. Użyj numeru wygenerowanego przez AdSense.
 
-```html
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2654167674032555"
-     data-ad-slot="TWOJ_SLOT_ID"
-     data-ad-format="auto"
-     data-full-width-responsive="true"
-     data-tag-for-age-treatment="1"></ins>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-```
-
-Nie wpisuj wymyślonego numeru `data-ad-slot`; skopiuj go z jednostki utworzonej w AdSense.
+Poza oznaczeniem poszczególnych żądań oznacz również witrynę jako skierowaną do dzieci w odpowiednich narzędziach Google/Search Console. Ustawienie na poziomie witryny jest szczególnie ważne, jeśli korzystasz z automatycznego sposobu umieszczania reklam.
 
 ## Zgody i cookies
 
-Brak personalizacji nie oznacza automatycznie braku plików cookie. Google informuje, że reklamy niespersonalizowane mogą nadal używać cookie/identyfikatorów m.in. do ograniczania częstotliwości i zbiorczych raportów. Dla użytkowników z EOG/UK/Szwajcarii skonfiguruj w AdSense „Prywatność i wiadomości” zgodnie z aktualnymi wymaganiami Google i prawa.
+Dla użytkowników z EOG, Wielkiej Brytanii i Szwajcarii skonfiguruj w AdSense aktualne wymagane rozwiązanie zarządzania zgodą. Brak reklam personalizowanych nie oznacza, że wszystkie technologie pamięci lokalnej są automatycznie wyłączone.

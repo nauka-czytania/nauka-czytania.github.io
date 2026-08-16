@@ -366,3 +366,11 @@ function prevSentence() {
 }
 
 showSentence();
+
+const importedText = sessionStorage.getItem("naukaCzytaniaText");
+if (importedText) {
+  sessionStorage.removeItem("naukaCzytaniaText");
+  textInput.value = importedText;
+  processText(importedText);
+  setTimeout(() => document.getElementById("czytnik")?.scrollIntoView({ behavior: "smooth", block: "start" }), 80);
+}
